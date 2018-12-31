@@ -8,7 +8,7 @@ int main()
     uid_t real = getuid();
     uid_t eff = geteuid();
     printf("RUID = %d EUID = %d\n", real, eff);
-    FILE* file = fopen("/home/valmit/Documents/QtProjects/irtegov-3/secret.txt", "r+");
+    FILE* file = fopen("/export/home/valmit/Documents/programming/irtegov-3/secret.txt", "r+");
     if (file == NULL) {
         perror("Access Denied");
     }
@@ -16,8 +16,10 @@ int main()
     if (setuid(real) == -1) {
         perror("setuid problem");
     }
+    real = getuid();
+    eff = geteuid();
     printf("RUID = %d EUID = %d\n", real, eff);
-    file = fopen("/home/valmit/Documents/QtProjects/irtegov-3/secret.txt", "r+");
+    file = fopen("/export/home/valmit/Documents/programming/irtegov-3/secret.txt", "r+");
     if (file == NULL) {
         perror("Access Denied");
     }
